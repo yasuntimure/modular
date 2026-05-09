@@ -5,7 +5,7 @@ This is the root coordinator agent for the Modular iOS project. It governs the a
 ## Project
 
 SwiftUI app targeting iOS 26.4 / macOS 26.3 / visionOS 26.4 (universal).
-Swift 6 / swift-tools-version 6.2. Bundle ID: `eyupyasuntimur.Modular`. Development Team: `JGMV95L4F7`.
+Swift 6 / swift-tools-version 6.2.
 Strict concurrency enabled. Default actor isolation: `MainActor`.
 
 ## Multi-Agent System
