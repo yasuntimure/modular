@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D0AF8DD22FAFDDCB00BD78DD /* ModularAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D0AF8DD12FAFDDCB00BD78DD /* ModularAnalytics */; };
+		D0AF8DD52FAFDE0000BD78DD /* ModularNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = D0AF8DD42FAFDE0000BD78DD /* ModularNetwork */; };
+		D0AF8DD82FAFDE1700BD78DD /* ModularRouter in Frameworks */ = {isa = PBXBuildFile; productRef = D0AF8DD72FAFDE1700BD78DD /* ModularRouter */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		D0329D652FAFD1BA00B6EEE0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0AF8DD82FAFDE1700BD78DD /* ModularRouter in Frameworks */,
+				D0AF8DD52FAFDE0000BD78DD /* ModularNetwork in Frameworks */,
+				D0AF8DD22FAFDDCB00BD78DD /* ModularAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +121,9 @@
 			);
 			name = Modular;
 			packageProductDependencies = (
+				D0AF8DD12FAFDDCB00BD78DD /* ModularAnalytics */,
+				D0AF8DD42FAFDE0000BD78DD /* ModularNetwork */,
+				D0AF8DD72FAFDE1700BD78DD /* ModularRouter */,
 			);
 			productName = Modular;
 			productReference = D0329D572FAFD1B800B6EEE0 /* Modular.app */;
@@ -195,6 +207,11 @@
 			);
 			mainGroup = D0329D4E2FAFD1B800B6EEE0;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D0AF8DD02FAFDDCB00BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-analytics" */,
+				D0AF8DD32FAFDE0000BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-network" */,
+				D0AF8DD62FAFDE1700BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-router" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D0329D582FAFD1B800B6EEE0 /* Products */;
 			projectDirPath = "";
@@ -615,6 +632,36 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		D0AF8DD02FAFDDCB00BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-analytics" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "Packages/mobile-ios-analytics";
+		};
+		D0AF8DD32FAFDE0000BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-network" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "Packages/mobile-ios-network";
+		};
+		D0AF8DD62FAFDE1700BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-router" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "Packages/mobile-ios-router";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0AF8DD12FAFDDCB00BD78DD /* ModularAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ModularAnalytics;
+		};
+		D0AF8DD42FAFDE0000BD78DD /* ModularNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ModularNetwork;
+		};
+		D0AF8DD72FAFDE1700BD78DD /* ModularRouter */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ModularRouter;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0329D4F2FAFD1B800B6EEE0 /* Project object */;
 }
