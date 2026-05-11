@@ -2,27 +2,42 @@ import Foundation
 import Testing
 @testable import ModularRouter
 
-@Suite("ModularRouter")
+private enum MockRoute: Hashable, Sendable {
+    case alpha
+    case beta(id: String)
+}
+
+@Suite("Router")
+@MainActor
 struct ModularRouterTests {
 
-    @Test func deepLinkHandlesHome() {
-        let handler = DeepLinkHandler()
-        #expect(handler.handle(url: URL(string: "app://example.com/home")!) == .home)
-        #expect(handler.handle(url: URL(string: "app://example.com/")!) == .home)
+    @Test func pushAppendsToPath() {
+        let router = Router()
+        #expect(router.path.count == 0)
+        router.push(MockRoute.alpha)
+        #expect(router.path.count == 1)
     }
 
-    @Test func deepLinkHandlesSettings() {
-        let handler = DeepLinkHandler()
-        #expect(handler.handle(url: URL(string: "app://example.com/settings")!) == .settings)
+    @Test func popRemovesLastEntry() {
+        let router = Router()
+        router.push(MockRoute.alpha)
+        router.push(MockRoute.beta(id: "x"))
+        router.pop()
+        #expect(router.path.count == 1)
     }
 
-    @Test func deepLinkHandlesDetail() {
-        let handler = DeepLinkHandler()
-        #expect(handler.handle(url: URL(string: "app://example.com/detail/abc123")!) == .detail(id: "abc123"))
+    @Test func popOnEmptyPathDoesNothing() {
+        let router = Router()
+        router.pop()
+        #expect(router.path.count == 0)
     }
 
-    @Test func deepLinkReturnsNilForUnknown() {
-        let handler = DeepLinkHandler()
-        #expect(handler.handle(url: URL(string: "app://example.com/unknown/path")!) == nil)
+    @Test func popToRootClearsAllEntries() {
+        let router = Router()
+        router.push(MockRoute.alpha)
+        router.push(MockRoute.beta(id: "y"))
+        router.push(MockRoute.alpha)
+        router.popToRoot()
+        #expect(router.path.count == 0)
     }
 }

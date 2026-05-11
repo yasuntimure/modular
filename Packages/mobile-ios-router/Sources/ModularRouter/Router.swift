@@ -9,7 +9,7 @@ public final class Router {
 
     public init() {}
 
-    public func push(_ route: Route) {
+    public func push<T: Hashable & Sendable>(_ route: T) {
         path.append(route)
     }
 

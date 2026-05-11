@@ -1,10 +1,8 @@
 import Foundation
 
-public struct DeepLinkHandler: Sendable {
+struct DeepLinkHandler: Sendable {
 
-    public init() {}
-
-    public func handle(url: URL) -> Route? {
+    func handle(url: URL) -> Route? {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return nil
         }
