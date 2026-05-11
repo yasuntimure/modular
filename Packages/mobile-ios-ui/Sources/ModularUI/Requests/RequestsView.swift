@@ -1,5 +1,4 @@
 import SwiftUI
-import ModularRouter
 
 public struct RequestsView: View {
 

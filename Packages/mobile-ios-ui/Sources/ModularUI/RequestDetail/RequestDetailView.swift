@@ -1,5 +1,4 @@
 import SwiftUI
-import ModularTheme
 
 public struct RequestDetailView: View {
     let request: Request
