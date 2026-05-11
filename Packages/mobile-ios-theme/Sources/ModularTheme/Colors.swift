@@ -4,6 +4,8 @@ public enum AppColor {
     public static let primary = Color.blue
     public static let secondary = Color.indigo
     public static let destructive = Color.red
+    public static let success = Color.green
+    public static let warning = Color.orange
     public static let onPrimary = Color.white
 
     #if canImport(UIKit)
