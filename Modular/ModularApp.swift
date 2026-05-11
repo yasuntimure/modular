@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ModularRouter
+import ModularUI
 
 @main
 struct ModularApp: App {
@@ -16,7 +17,7 @@ struct ModularApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.path) {
-                RequestsView(viewModel: RequestsViewModel(router: router))
+                RequestsView(viewModel: makeRequestsViewModel())
                     .navigationDestination(for: Route.self) { route in
                         destination(for: route)
                     }
@@ -24,12 +25,17 @@ struct ModularApp: App {
         }
     }
 
+    private func makeRequestsViewModel() -> RequestsViewModel {
+        RequestsViewModel { [router] request in
+            router.push(Route.requestDetail(request: request))
+        }
+    }
+
     @ViewBuilder
     private func destination(for route: Route) -> some View {
         switch route {
         case .requests:
-            let viewModel = RequestsViewModel(router: router)
-            RequestsView(viewModel: viewModel)
+            RequestsView(viewModel: makeRequestsViewModel())
         case .requestDetail(let request):
             RequestDetailView(request: request)
         }

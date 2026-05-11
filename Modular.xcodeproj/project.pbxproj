@@ -10,6 +10,7 @@
 		D0AF8DD22FAFDDCB00BD78DD /* ModularAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D0AF8DD12FAFDDCB00BD78DD /* ModularAnalytics */; };
 		D0AF8DD52FAFDE0000BD78DD /* ModularNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = D0AF8DD42FAFDE0000BD78DD /* ModularNetwork */; };
 		D0AF8DD82FAFDE1700BD78DD /* ModularRouter in Frameworks */ = {isa = PBXBuildFile; productRef = D0AF8DD72FAFDE1700BD78DD /* ModularRouter */; };
+		D0AF8E272FB241D900BD78DD /* ModularUI in Frameworks */ = {isa = PBXBuildFile; productRef = D0AF8E262FB241D900BD78DD /* ModularUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 				D0AF8DD82FAFDE1700BD78DD /* ModularRouter in Frameworks */,
 				D0AF8DD52FAFDE0000BD78DD /* ModularNetwork in Frameworks */,
 				D0AF8DD22FAFDDCB00BD78DD /* ModularAnalytics in Frameworks */,
+				D0AF8E272FB241D900BD78DD /* ModularUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +126,7 @@
 				D0AF8DD12FAFDDCB00BD78DD /* ModularAnalytics */,
 				D0AF8DD42FAFDE0000BD78DD /* ModularNetwork */,
 				D0AF8DD72FAFDE1700BD78DD /* ModularRouter */,
+				D0AF8E262FB241D900BD78DD /* ModularUI */,
 			);
 			productName = Modular;
 			productReference = D0329D572FAFD1B800B6EEE0 /* Modular.app */;
@@ -211,6 +214,7 @@
 				D0AF8DD02FAFDDCB00BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-analytics" */,
 				D0AF8DD32FAFDE0000BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-network" */,
 				D0AF8DD62FAFDE1700BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-router" */,
+				D0AF8E252FB241D900BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-ui" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D0329D582FAFD1B800B6EEE0 /* Products */;
@@ -646,6 +650,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "Packages/mobile-ios-router";
 		};
+		D0AF8E252FB241D900BD78DD /* XCLocalSwiftPackageReference "Packages/mobile-ios-ui" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "Packages/mobile-ios-ui";
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -660,6 +668,10 @@
 		D0AF8DD72FAFDE1700BD78DD /* ModularRouter */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ModularRouter;
+		};
+		D0AF8E262FB241D900BD78DD /* ModularUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ModularUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

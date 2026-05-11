@@ -11,13 +11,11 @@ let package = Package(
     products: [
         .library(name: "ModularRouter", targets: ["ModularRouter"]),
     ],
-    dependencies: [
-        .package(path: "../mobile-ios-theme"),
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "ModularRouter",
-            dependencies: [.product(name: "ModularTheme", package: "mobile-ios-theme")],
+            dependencies: [],
             path: "Sources/ModularRouter",
             swiftSettings: [
                 .swiftLanguageMode(.v6),

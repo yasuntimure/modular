@@ -17,18 +17,20 @@ Strict concurrency enabled. Default actor isolation: `MainActor`.
 | `ModularNetworkAgent` | `Packages/mobile-ios-network/` | HTTP transport, request modeling |
 | `ModularAnalyticsAgent` | `Packages/mobile-ios-analytics/` | Event tracking, provider fan-out |
 | `ModularRouterAgent` | `Packages/mobile-ios-router/` | Navigation graph, deep links |
+| `ModularUIAgent` | `Packages/mobile-ios-ui/` | SwiftUI views, view models, shared UI models |
 
 Cross-package changes flow **top-down**: propose at root, implement starting from the depended-on package first.
 
 ## Dependency Graph
 
 ```
-ModularTheme      ←── ModularRouter ←── Modular (app)
-ModularNetwork    ←────────────────────── Modular (app)
-ModularAnalytics  ←────────────────────── Modular (app)
+ModularTheme      ←── ModularUI ←── Modular (app)
+ModularRouter     ←── ModularUI ←── Modular (app)
+ModularNetwork    ←────────────────── Modular (app)
+ModularAnalytics  ←────────────────── Modular (app)
 ```
 
-Never add dependencies that create cycles. `ModularNetwork` and `ModularAnalytics` must stay standalone (no imports of Theme or Router).
+Never add dependencies that create cycles. `ModularNetwork` and `ModularAnalytics` must stay standalone (no imports of Theme, Router, or UI). `ModularUI` must NOT import `ModularNetwork` or `ModularAnalytics` — ViewModels that need I/O accept injected closures or protocol dependencies from the app target.
 
 ## Repository Layout
 
@@ -36,6 +38,8 @@ Never add dependencies that create cycles. `ModularNetwork` and `ModularAnalytic
 Modular/                        ← App target (ModularAgent)
   ModularApp.swift              ← @main, composition root, provider wiring
   ContentView.swift             ← Root UI view
+  Route.swift                   ← App-specific IRoutable enum
+  DeepLinkHandler.swift         ← URL-to-Route mapping
 ModularTests/                   ← App unit tests (Swift Testing)
 ModularUITests/                 ← UI tests (XCTest / XCUIApplication)
 Packages/
@@ -43,6 +47,7 @@ Packages/
   mobile-ios-network/           ← ModularNetworkAgent
   mobile-ios-analytics/         ← ModularAnalyticsAgent
   mobile-ios-router/            ← ModularRouterAgent
+  mobile-ios-ui/                ← ModularUIAgent
 ```
 
 ## Build & Test
@@ -65,6 +70,7 @@ cd Packages/mobile-ios-theme     && swift test
 cd Packages/mobile-ios-network   && swift test
 cd Packages/mobile-ios-analytics && swift test
 cd Packages/mobile-ios-router    && swift test
+cd Packages/mobile-ios-ui        && swift test
 ```
 
 ## Xcode Integration
@@ -72,7 +78,7 @@ cd Packages/mobile-ios-router    && swift test
 Add each package to `Modular.xcodeproj` via:
 `File > Add Package Dependencies... > Add Local...` → select each `Packages/mobile-ios-*` directory → link the product to the `Modular` target.
 
-`ModularRouter`'s transitive dependency on `ModularTheme` resolves automatically via SPM.
+`ModularUI`'s transitive dependency on `ModularRouter` and `ModularTheme` resolves automatically via SPM.
 
 ## Architecture Principles
 

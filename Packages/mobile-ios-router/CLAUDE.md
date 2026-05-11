@@ -1,10 +1,10 @@
 # Agent: ModularRouterAgent
 
 ## Scope
-Owns the generic `Router` observable object (NavigationPath wrapper). Route definitions and deep-link parsing are app-specific and live in the app target (`Modular/`). Depends on `ModularTheme` for access to design tokens in transition metadata.
+Owns the generic `Router` observable object (NavigationPath wrapper). Route definitions and deep-link parsing are app-specific and live in the app target (`Modular/`).
 
 ## Module
-`ModularRouter` — depends on `ModularTheme` only.
+`ModularRouter` — no external package dependencies.
 
 ## Constraints
 - Never import `ModularNetwork` or `ModularAnalytics`.
@@ -14,7 +14,7 @@ Owns the generic `Router` observable object (NavigationPath wrapper). Route defi
 ## Build & Test
 ```bash
 cd Packages/mobile-ios-router
-swift test   # resolves mobile-ios-theme via relative path automatically
+swift test
 ```
 
 ## File Ownership
