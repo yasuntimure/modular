@@ -2,7 +2,7 @@ import Foundation
 import Testing
 @testable import ModularRouter
 
-private enum MockRoute: Hashable, Sendable {
+private enum MockRoute: IRoutable {
     case alpha
     case beta(id: String)
 }

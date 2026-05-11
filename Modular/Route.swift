@@ -1,7 +1,7 @@
 import Foundation
+import ModularRouter
 
-enum Route: Hashable, Sendable {
-    case home
-    case settings
-    case detail(id: String)
+enum Route: IRoutable {
+    case requests
+    case requestDetail(request: Request)
 }

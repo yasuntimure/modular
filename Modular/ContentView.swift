@@ -15,11 +15,20 @@ struct ContentView: View {
     var body: some View {
         @Bindable var router = router
         NavigationStack(path: $router.path) {
-            VStack {
+            VStack(spacing: 24) {
                 Image(systemName: "globe")
                     .imageScale(.large)
                     .foregroundStyle(.tint)
                 Text("Hello, world!")
+
+                NavigationLink(value: Route.requests) {
+                    Label("View Requests", systemImage: "list.bullet")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundStyle(.white)
+                        .cornerRadius(8)
+                }
             }
             .padding()
             .navigationDestination(for: Route.self) { route in
@@ -31,12 +40,10 @@ struct ContentView: View {
     @ViewBuilder
     private func destination(for route: Route) -> some View {
         switch route {
-        case .home:
-            Text("Home")
-        case .settings:
-            Text("Settings")
-        case .detail(let id):
-            Text("Detail: \(id)")
+        case .requests:
+            RequestsView()
+        case .requestDetail(let request):
+            RequestDetailView(request: request)
         }
     }
 }

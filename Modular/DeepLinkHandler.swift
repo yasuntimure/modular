@@ -9,13 +9,13 @@ struct DeepLinkHandler: Sendable {
 
         switch components.path {
         case "/", "/home":
-            return .home
+            return .requests
         case "/settings":
-            return .settings
+            return .requests
         default:
             if components.path.hasPrefix("/detail/") {
                 let id = String(components.path.dropFirst("/detail/".count))
-                return id.isEmpty ? nil : .detail(id: id)
+                return id.isEmpty ? nil : .requests
             }
             return nil
         }

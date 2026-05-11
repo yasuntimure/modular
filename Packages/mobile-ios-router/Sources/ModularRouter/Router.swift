@@ -1,6 +1,8 @@
 import SwiftUI
 import Observation
 
+public protocol IRoutable: Hashable, Sendable {}
+
 @MainActor
 @Observable
 public final class Router {
@@ -9,7 +11,7 @@ public final class Router {
 
     public init() {}
 
-    public func push<T: Hashable & Sendable>(_ route: T) {
+    public func push<T: IRoutable>(_ route: T) {
         path.append(route)
     }
 
